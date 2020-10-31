@@ -22,6 +22,7 @@
     "snowpack": "^2.16.0"
   },
   "dependencies": {
+    "idb": "^5.0.7",
     "vanilla-router": "^1.2.8"
   }
 }
