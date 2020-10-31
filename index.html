@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Football Radar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A PWA about footbal info">
-  <meta name="apple-mobile-web-app-status-bar" content="#42A5F5">
-  <meta name="theme-color" content="#42A5F5">
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <link rel="stylesheet" href="/styles/materialize.min.css">
-  <link rel="manifest" href="/manifest.json">
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/icons/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
-  <!-- IOS icons support -->
-  <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
-  <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
-  <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
-  <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
-  <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
-  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-  <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
-  <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
-</head>
+  <head>
+    <title>Football Radar</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="A football information PWA" />
+    <meta name="apple-mobile-web-app-status-bar" content="#42A5F5" />
+    <meta name="theme-color" content="#42A5F5" />
+    <link rel="manifest" href="./manifest.json" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons/app/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/app/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/app/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/icons/app/favicon-96x96.png"
+    />
+    <!-- IOS icons support -->
+    <link rel="apple-touch-icon" href="/icons/app/icon-72x72.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-96x96.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-128x128.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-144x144.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-152x152.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-384x384.png" />
+    <link rel="apple-touch-icon" href="/icons/app/icon-512x512.png" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./materialize/materialize.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <!-- Scripts -->
+    <script defer src="./materialize/materialize.min.js"></script>
+    <script defer type="module" src="./index.js"></script>
+  </head>
 
-<body>
-  <nav class="blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-      <a href="#home" class="brand-logo">Football Radar</a>
-      <a href="#" class="sidenav-trigger" data-target="mobile">
-        <i class="material-icons">menu</i>
-      </a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#favorite">Favorite</a></li>
-        <li><a href="#standings">Standings</a></li>
-        <li><a href="#schedule">Schedule</a></li>
-      </ul>
-    </div>
-  </nav>
+  <body>
+    <nav class="light-blue" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">FBL Radar</a>
+        <a href="#" class="sidenav-trigger" data-target="mobile">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/favorite">Favorite</a></li>
+          <li><a href="/merchandise">Merchandise</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <ul class="sidenav" id="mobile">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#favorite">Favorite</a></li>
-    <li><a href="#standings">Standings</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-  </ul>
+    <ul class="sidenav" id="mobile">
+      <li><a href="/">Home</a></li>
+      <li><a href="/favorite">Favorite</a></li>
+      <li><a href="/merchandise">Merchandise</a></li>
+    </ul>
 
-  <main class="container"></main>
-  
-  <script src="scripts/materialize.min.js"></script>
-  <script src="scripts/index.js"></script>
-</body>
+    <div class="app"></div>
+  </body>
 </html>

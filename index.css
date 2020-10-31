@@ -1,0 +1,43 @@
+.app {
+  padding: 2rem 0;
+}
+
+.padded {
+  padding: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.preloader-style {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table,
+.card,
+.collapsible-header,
+.collapsible-body {
+  background: #ededed;
+}
+
+table,
+.card {
+  border-radius: 10px;
+}
+
+.single-card {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 400px) {
+  .single-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
