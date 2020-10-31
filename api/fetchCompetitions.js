@@ -1,11 +1,10 @@
 const API = "https://api.football-data.org/v2/";
-const { SNOWPACK_PUBLIC_API_KEY } = import.meta.env;
-
+const API_KEY = "03755127bfc449eebb8399d212f3627f";
 export const fetchCompetitions = async () => {
   try {
     const response = await fetch(`${API}competitions?plan=TIER_ONE`, {
       headers: {
-        "X-Auth-Token": SNOWPACK_PUBLIC_API_KEY,
+        "X-Auth-Token": API_KEY,
       },
     });
 
