@@ -1,0 +1,27 @@
+{
+  "name": "football-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkyzhang/football-pwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizkyzhang/football-pwa/issues"
+  },
+  "homepage": "https://github.com/rizkyzhang/football-pwa#readme",
+  "devDependencies": {
+    "@snowpack/plugin-dotenv": "^2.0.4",
+    "snowpack": "^2.16.0"
+  },
+  "dependencies": {
+    "vanilla-router": "^1.2.8"
+  }
+}
