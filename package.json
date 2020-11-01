@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "idb": "^5.0.7",
-    "vanilla-router": "^1.2.8"
+    "vanilla-router": "^1.2.8",
+    "web-push": "^3.4.4"
   }
 }
