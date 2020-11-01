@@ -94,3 +94,49 @@ self.addEventListener("fetch", (event) => {
     ),
   );
 });
+
+self.addEventListener("notificationclick", (event) => {
+  if (!event.action) {
+    return;
+  }
+
+  switch (event.action) {
+  case "cool":
+    console.log("User choose cool");
+    break;
+  case "nope":
+    console.log("User choose nope");
+    break;
+  default:
+    console.log(`Unknown action: ${event.action}`);
+    break;
+  }
+});
+
+self.addEventListener("push", (event) => {
+  const body = event.data ? event.data.text() : "No payload detected";
+
+  const options = {
+    body,
+    icon: "./icons/app/icon-72x72.png",
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1,
+    },
+    actions: [
+      {
+        action: "cool",
+        title: "cool",
+      },
+      {
+        action: "nope",
+        title: "nope",
+      },
+    ],
+  };
+
+  event.waitUntil(
+    self.registration.showNotification("Push Notification", options),
+  );
+});
