@@ -54,7 +54,7 @@ const getTeamContent = async (id) => {
       </ul>
 
       <div data-team=${teamEncodedDataset} class="favorite-btn fixed-action-btn">
-        <a data-team=${teamEncodedDataset} class="favorite-btn btn-floating btn-large red pulse">
+        <a data-team=${teamEncodedDataset} class="favorite-btn btn-floating btn-large red lighten-1 pulse">
           <i data-team=${teamEncodedDataset} class="favorite-btn large material-icons">favorite</i>
         </a>
       </div>
