@@ -19,6 +19,9 @@
   "homepage": "https://github.com/rizkyzhang/football-pwa#readme",
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.0.4",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
     "snowpack": "^2.16.0"
   },
   "dependencies": {
