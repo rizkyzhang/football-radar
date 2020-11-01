@@ -2,6 +2,7 @@
   "name": "Football Radar",
   "short_name": "FBL Radar",
   "start_url": "/index.html",
+  "gcm_sender_id": "516579231226", 
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#42A5F5",
