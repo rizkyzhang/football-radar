@@ -1,21 +1,20 @@
 import { fetchTeam } from "../api/fetchTeam";
 
 const buildHTML = (player) => ` 
-    <li>
-      <div class="collapsible-header">
-        <i class="material-icons">person</i>${player.name}
-      </div>
-      <div class="collapsible-body">
-        <p>Name: ${player.name}</p>
-        <p>Nationality: ${player.nationality}</p>
-        <p>Country of birth: ${player.countryOfBirth}</p>
-        <p>Date of birth: ${new Date(player.dateOfBirth).toLocaleDateString(
-          "id",
-        )}</p>
-        <p>Position: ${player.position}</p>
-        <p>Role: ${player.role}</p>
-      </div>
-    </li>`;
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">person</i>${player.name}
+    </div>
+    <div class="collapsible-body">
+      <p>Name: ${player.name}</p>
+      <p>Nationality: ${player.nationality}</p>
+      <p>Country of birth: ${player.countryOfBirth}</p>
+      <p>Date of birth: ${new Date(player.dateOfBirth).toLocaleDateString("id")}</p>
+      <p>Position: ${player.position}</p>
+      <p>Role: ${player.role}</p>
+    </div>
+  </li>
+`;
 
 const getTeamContent = async (id) => {
   const team = await fetchTeam(id);
@@ -39,7 +38,7 @@ const getTeamContent = async (id) => {
             }>
           </div>
           <div class="card-content">
-            <h5 className="truncate">${team.name}</h5>
+            <h5 class="truncate">${team.name}</h5>
             <h6>${team.area.name}</h6>
             <p>Founded: ${team.founded}</p>
             <p>Club Colors: ${team.clubColors}</p>
