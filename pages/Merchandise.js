@@ -5,7 +5,7 @@ const buildHTML = (image) => `
         <img src=${image}>
       </div>
       <div class="card-action">
-        <a class="full-width btn blue lighten-1 waves-effect waves-light" href="#">Buy</a>
+        <a  href="#" class="full-width btn blue lighten-1 waves-effect waves-light">Buy</a>
       </div>
     </div>
   </div>
