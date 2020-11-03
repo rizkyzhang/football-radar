@@ -14,8 +14,8 @@ const buildHTML = (team) => {
           }>
         </div>
         <div class="card-content">
-                <h5 className="truncate">${team.name}</h5>
-                <h6>${team.area.name}</h6>
+          <h5 class="truncate">${team.name}</h5>
+          <h6>${team.area.name}</h6>
         </div>
         <div class="card-action">
           <a href="/teams/${team.id}"
@@ -51,7 +51,7 @@ const getFavoriteContent = async () => {
   }
 
   return `
-    <div class="container centered">
+    <div class="container">
       <h3>Nothing to see here :(</h3>
     </div>
   `;
