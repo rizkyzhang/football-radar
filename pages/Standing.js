@@ -1,15 +1,15 @@
 import { fetchStandings } from "../api/fetchStandings";
 
 const buildHTML = (standingInfo) => ` 
-    <tr>
-      <td>${standingInfo.position}</td>
-      <td><a href="/teams/${standingInfo.team.id}" class="dynamic-link">${standingInfo.team.name}</NavLink></td>
-      <td>${standingInfo.won}</td>
-      <td>${standingInfo.lost}</td>
-      <td>${standingInfo.draw}</td>
-      <td>${standingInfo.points}</td>
-    </tr>
-  `;
+  <tr>
+    <td>${standingInfo.position}</td>
+    <td><a href="/teams/${standingInfo.team.id}" class="dynamic-link">${standingInfo.team.name}</NavLink></td>
+    <td>${standingInfo.won}</td>
+    <td>${standingInfo.lost}</td>
+    <td>${standingInfo.draw}</td>
+    <td>${standingInfo.points}</td>
+  </tr>
+`;
 
 const getStandingContent = async (id) => {
   const standings = await fetchStandings(id);
@@ -31,9 +31,7 @@ const getStandingContent = async (id) => {
           <h6>${standings.competition.area.name}</h6>
           <p>Start: ${standings.season.startDate}</p>
           <p>End: ${standings.season.endDate}</p>
-          <p>Last Updated: ${new Date(
-            standings.competition.lastUpdated,
-          ).toLocaleDateString("id")}</p>
+          <p>Last Updated: ${new Date(standings.competition.lastUpdated).toLocaleDateString("id")}</p>
         </div>
       </div>
 
