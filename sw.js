@@ -1,5 +1,18 @@
-const STATIC_CACHE = "fbl-radar-static-v1";
-const DYNAMIC_CACHE = "fbl-radar-dynamic-v1";
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js",
+);
+
+if (workbox) {
+  console.log("Workbox is successfully loaded :)");
+} else {
+  console.log("Workbox didn't load :(");
+}
+
+const { registerRoute } = workbox.routing;
+const { precacheAndRoute } = workbox.precaching;
+const { CacheFirst, StaleWhileRevalidate } = workbox.strategies;
+const { CacheableResponsePlugin } = workbox.cacheableResponse;
+const { ExpirationPlugin } = workbox.expiration;
 
 const STATIC_ASSETS = [
   "/",
@@ -35,19 +48,19 @@ const STATIC_ASSETS = [
   "/icons/app/icon-192x192.png",
   "/icons/app/icon-384x384.png",
   "/icons/app/icon-512x512.png",
-  "/icons/teams/CL.png",
-  "/icons/teams/EC.png",
-  "/icons/teams/PD.png",
-  "/icons/teams/PL.png",
-  "/icons/teams/SA.png",
-  "/icons/teams/WC.png",
-  "/icons/teams/BL1.png",
-  "/icons/teams/BSA.png",
-  "/icons/teams/DED.png",
-  "/icons/teams/ELC.png",
-  "/icons/teams/FL1.png",
-  "/icons/teams/PPL.png",
-  "/icons/teams/not-found.svg",
+  "/icons/competitions/CL.png",
+  "/icons/competitions/EC.png",
+  "/icons/competitions/PD.png",
+  "/icons/competitions/PL.png",
+  "/icons/competitions/SA.png",
+  "/icons/competitions/WC.png",
+  "/icons/competitions/BL1.png",
+  "/icons/competitions/BSA.png",
+  "/icons/competitions/DED.png",
+  "/icons/competitions/ELC.png",
+  "/icons/competitions/FL1.png",
+  "/icons/competitions/PPL.png",
+  "/icons/competitions/not-found.svg",
   "/images/mask.jpg",
   "/images/ball1.jpg",
   "/images/ball2.jpg",
@@ -62,43 +75,44 @@ const STATIC_ASSETS = [
   "/images/shoe7.jpg",
 ];
 
-self.addEventListener("install", (event) => {
-  console.log("Service worker has been installed");
+precacheAndRoute(
+  STATIC_ASSETS.map((STATIC_ASSET) => ({
+    url: STATIC_ASSET,
+    revision: "1",
+  })),
+);
 
-  event.waitUntil(
-    caches
-      .open(STATIC_CACHE)
-      .then((cache) => {
-        console.log("Caching assets");
-        cache.addAll(STATIC_ASSETS);
-      })
-      .then(() => self.skipWaiting()), // new service worker will be immediately activated
-  );
-});
+registerRoute(
+  ({ url }) => url.origin === "https://api.football-data.org",
+  new StaleWhileRevalidate({
+    cacheName: "football-data-api",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 30,
+      }),
+    ],
+  }),
+);
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches
-      .keys()
-      .then((keys) => Promise.all(
-        keys
-          .filter((key) => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
-          .map((key) => caches.delete(key)),
-      )),
-  );
-});
-
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then(
-      (cacheResponse) => cacheResponse
-        || fetch(event.request).then((fetchResponse) => caches.open(DYNAMIC_CACHE).then((cache) => {
-          cache.put(event.request.url, fetchResponse.clone());
-          return fetchResponse;
-        })),
-    ),
-  );
-});
+registerRoute(
+  ({ url }) => url.origin === "https://crests.football-data.org",
+  new CacheFirst({
+    cacheName: "team-logo",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 30,
+      }),
+    ],
+  }),
+);
 
 self.addEventListener("notificationclick", (event) => {
   if (!event.action) {
