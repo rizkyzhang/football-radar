@@ -76,7 +76,7 @@ router.check();
 
 document.addEventListener("DOMContentLoaded", () => {
   initServiceWorker();
-  
+
   const sidenav = document.querySelector(".sidenav");
   M.Sidenav.init(sidenav);
 
@@ -96,7 +96,9 @@ app.addEventListener("click", async (event) => {
   if (event.target.classList.contains("favorite-btn")) {
     const teamId = +window.location.href.split("/")[4];
     const teamIDB = await getSingleData("favorite", teamId);
-    const teamDecodedDataset = JSON.parse(decodeURIComponent(event.target.dataset.team));
+    const teamDecodedDataset = JSON.parse(
+      decodeURIComponent(event.target.dataset.team),
+    );
 
     if (!teamIDB) {
       addData("favorite", teamDecodedDataset);
@@ -104,15 +106,15 @@ app.addEventListener("click", async (event) => {
       M.toast({
         html: `${teamDecodedDataset.name} has been added to the favorite page`,
       });
-    } else {
-      M.toast({
-        html: `${teamDecodedDataset.name} has already been added to the favorite page`,
-      });
     }
+
+    window.location.reload();
   }
 
   if (event.target.classList.contains("delete-btn")) {
-    const teamDecodedDataset = await JSON.parse(decodeURIComponent(event.target.dataset.team));
+    const teamDecodedDataset = await JSON.parse(
+      decodeURIComponent(event.target.dataset.team),
+    );
     const teamId = await teamDecodedDataset.id;
 
     if (teamId) {
@@ -122,7 +124,7 @@ app.addEventListener("click", async (event) => {
         html: `${teamDecodedDataset.name} has been deleted from the favorite page`,
       });
 
-      window.location.reload(); // Refresh page
+      window.location.reload();
     }
   }
 
