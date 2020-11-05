@@ -24,14 +24,18 @@ const getStandingContent = async (id) => {
     <div class="container">
       <div class="card single-card z-depth-3">
         <div class="card-image">
-          <img src="../icons/teams/${standings.competition.code}.png">
+          <img alt="Competition Logo" src="../icons/competitions/${
+            standings.competition.code
+          }.png">
         </div>
         <div class="card-content">
           <h5 class="truncate">${standings.competition.name}</h5>
           <h6>${standings.competition.area.name}</h6>
           <p>Start: ${standings.season.startDate}</p>
           <p>End: ${standings.season.endDate}</p>
-          <p>Last Updated: ${new Date(standings.competition.lastUpdated).toLocaleDateString("id")}</p>
+          <p>Last Updated: ${new Date(
+            standings.competition.lastUpdated,
+          ).toLocaleDateString("id")}</p>
         </div>
       </div>
 
