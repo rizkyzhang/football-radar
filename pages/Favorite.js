@@ -7,7 +7,7 @@ const buildHTML = (team) => {
     <div class="col s12 m6 l4">
       <div class="card hoverable z-depth-2">
         <div class="card-image">
-          <img style="height:300px;" class="padded" src=${
+          <img alt="Team Logo" style="height:300px;" class="padded" src=${
             team.crestUrl
               ? team.crestUrl.replace(/^http:\/\//i, "https://")
               : "../logos/not-found.svg"
