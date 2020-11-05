@@ -10,7 +10,7 @@ export const fetchTeam = async (id) => {
     });
 
     if (!response.ok) {
-      const message = `Error: ${response.status}`;
+      const message = `Fetch error: ${response.status}`;
       throw new Error(message);
     }
 
