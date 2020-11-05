@@ -4,7 +4,7 @@ const buildHTML = (competition) => `
     <div class="col s12 m6 l4">
       <div class="card hoverable z-depth-2">
         <div class="card-image">
-            <img class="padded" src="../icons/teams/${competition.code}.png" />
+            <img alt="Competition Logo" class="padded" src="../icons/competitions/${competition.code}.png" />
         </div>
         <div class="card-content">
             <h5 class="truncate">${competition.name}</h5>
