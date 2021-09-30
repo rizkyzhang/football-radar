@@ -17,3 +17,14 @@ nmp i
 ```
 npx snowpack dev
 ```
+## Techs
+- HTML 
+- CSS 
+- Materialize CSS 
+- JavaScript
+- Snowpack
+- IndexedDB 
+- Service Worker 
+- Workbox 
+- Firebase Cloud Messaging
+- [Football API](https://www.football-data.org/)
